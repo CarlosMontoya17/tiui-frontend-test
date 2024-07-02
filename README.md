@@ -2,6 +2,33 @@
 
 ¡Bienvenido a la prueba técnica para el puesto de Desarrollador Full Stack Jr en Tiui Soluciones!
 
+## Instalación
+
+1. Clonar el repositorio
+```shell
+git clone https://github.com/CarlosMontoya17/tiui-frontend-test
+```
+
+2. Ingresar a la carpeta
+```shell
+cd tiui-frontend-test
+```
+
+3. Instalar dependencias
+```shell
+npm i
+```
+
+4. Ejecutar el proyecto
+```shell
+npm run dev
+```
+
+5. Abrir navegador preferido e ingresar a
+```http
+http://localhost:4200/
+```
+
 ## Descripción
 
 En esta prueba, deberás crear una aplicación web sencilla utilizando React junto con Material-UI o Bootstrap. La aplicación será una lista de tareas (To-Do List) donde los usuarios puedan agregar, editar y eliminar tareas. Esta prueba nos permitirá evaluar tus habilidades en el desarrollo frontend, tu manejo de componentes y estilos, y tu capacidad para trabajar con tecnologías modernas.
