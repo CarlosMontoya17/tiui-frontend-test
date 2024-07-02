@@ -1,0 +1,30 @@
+li.list {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0;
+    width: 100%;
+    gap: 2rem;
+  .texts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &.checked {
+      text-decoration: line-through;
+    }
+    h5 {
+        margin: 0;
+        text-transform: uppercase;
+    }
+    span {
+        color: #b9b9b9;
+    }
+  }
+  .tools {
+    display: flex;
+    gap: 1.4rem;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+  }
+
+}
