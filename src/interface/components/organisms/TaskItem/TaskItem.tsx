@@ -49,9 +49,9 @@ const TaskItem: React.FC<TaskItemProps>  = ({ id, title, text, status, date, onC
 
 	return (
 		<>
-			<DeleteModalProvider title='Are U Sure?' text='This activity will be delete' accept={deleteItem} cancel={() => {}}></DeleteModalProvider>
+			<DeleteModalProvider title='¿Estás seguro?' text='Esta actividad será eliminada' accept={deleteItem} cancel={() => {}}></DeleteModalProvider>
 			<li className='list'>
-				<Tooltip title={checked ? 'Change to pendient': 'Change to ready'}>
+				<Tooltip title={checked ? 'Cambiar a pendiente': 'Cambiar a listo'}>
 					<Checkbox onClick={toggle} checked={checked}  icon={<BsCalendar color='white' />} checkedIcon={<BsCalendar2CheckFill />}></Checkbox>
 				</Tooltip>
 				<div className={`texts${checked ? ' checked': ''}`}>
@@ -61,7 +61,7 @@ const TaskItem: React.FC<TaskItemProps>  = ({ id, title, text, status, date, onC
 				
 
 				<div className="tools">
-					<Chip text={ checked ? 'READY': 'PENDIENT' } bgColor={checked?'#46c946':''} fgColor={checked?'white':''} />
+					<Chip text={ checked ? 'LISTO': 'PENDIENTE' } bgColor={checked?'#46c946':''} fgColor={checked?'white':''} />
 					<Chip text={formatDate(date)} />
 					<CustomButton Icon={BsFillPencilFill} variant='contained' color='primary' size='small' onClick={handleEdit}/>
 					<CustomButton Icon={BsFillTrashFill} variant='contained' color='error' size='small' onClick={handleDelete}/>

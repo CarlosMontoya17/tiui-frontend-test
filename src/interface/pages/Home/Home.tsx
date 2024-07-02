@@ -1,20 +1,18 @@
 "use client";
-import React, { useEffect, useMemo, useState } from 'react';
-import './Home.scss';
-import { useDispatch, useSelector } from 'react-redux';
 import { useTaskContext } from '@/context';
 import { FilterType, ITask, StorageKeys } from '@/domain';
 import { AppStore, getLocalStorage, removeItem, setItems } from '@/infraestructure';
-import { SimpleModalComponent, taskModalState } from '@/interface/components/molecules';
-import TaskModal from '@/interface/components/molecules/TaskModal/TaskModal';
-import Filters from '@/interface/components/molecules/Filters/Filters';
 import CustomButton from '@/interface/components/atoms/CustomButton/CustomButton';
+import { SimpleModalComponent, taskModalState } from '@/interface/components/molecules';
+import Filters from '@/interface/components/molecules/Filters/Filters';
+import TaskModal from '@/interface/components/molecules/TaskModal/TaskModal';
 import TaskList from '@/interface/components/templates/TaskList/TaskList';
+import React, { useEffect, useMemo, useState } from 'react';
 import { BsCalendar2Plus } from 'react-icons/bs';
-import TaskContext from '@/context/TaskContext/TaskContext';
+import { useDispatch, useSelector } from 'react-redux';
+import './Home.scss';
 
 export type HomeProps = {
-	// types...
 }
 
 const Home: React.FC<HomeProps>  = ({}) => {
@@ -104,7 +102,7 @@ const Home: React.FC<HomeProps>  = ({}) => {
 			<CancelModalProvider title='¿Estás seguro?' text='Se borrarán los cambios realizados' accept={() => cancelTask(false)} cancel={() => {}}/>
 			<TaskModal onAdd={addTask} onClose={cancelTask} ></TaskModal>
 			<section className='view'>
-				To-Do List:
+				Lista To-Do:
 				<div className="filter-tools">
 					<Filters onChange={handleFilter} />
 					<CustomButton Icon={BsCalendar2Plus} color='primary' variant='contained' size='large' text='Add' onClick={openTaskModal}/>

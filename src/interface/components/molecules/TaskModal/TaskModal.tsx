@@ -46,7 +46,7 @@ const TaskModal: React.FC<TaskModalProps>  = ({ onAdd, onClose }) => {
 	const validate = () => {
 		const _err = { title: '' };
 		if(!title) {
-			_err.title = "Title is required"
+			_err.title = "Se requiere un título de la Tarea"
 		}
 		setErrors(_err);
 		return !Object.values(_err).some((error) => error);
@@ -92,8 +92,8 @@ const TaskModal: React.FC<TaskModalProps>  = ({ onAdd, onClose }) => {
 						<TextArea onChange={textChanges} value={text} placeholder='Descripción'/>
 					</div>
 					<DialogActions>
-						<CustomButton Icon={BsChevronDown} color='error' size='medium' variant='outlined' text='Close' onClick={() => onClose(isValid)}></CustomButton>
-						<CustomButton Icon={BsCheck2Circle} color='success' size='medium' variant='contained' text='Add' type='submit' disabled={!isValid}></CustomButton>
+						<CustomButton Icon={BsChevronDown} color='error' size='medium' variant='outlined' text='Cerrar' onClick={() => onClose(isValid)}></CustomButton>
+						<CustomButton Icon={BsCheck2Circle} color='success' size='medium' variant='contained' text={id?'Actualizar':'Añadir'} type='submit' disabled={!isValid}></CustomButton>
 					</DialogActions>
 				</form>
 			</ Dialog>

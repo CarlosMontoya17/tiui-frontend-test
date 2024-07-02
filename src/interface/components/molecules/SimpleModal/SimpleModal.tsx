@@ -59,8 +59,8 @@ export class SimpleModalComponent {
 				</DialogContentText>
 			</DialogContent>
 			<DialogActions>
-                { cancel && <CustomButton color='error' size='medium' variant='outlined' text='Cancel' onClick={cancelClicked}/> }
-				{ accept && <CustomButton color='success' size='medium' variant='contained' text='Accept' onClick={acceptClicked}/> }
+                { cancel && <CustomButton color='error' size='medium' variant='outlined' text='Cancelar' onClick={cancelClicked}/> }
+				{ accept && <CustomButton color='success' size='medium' variant='contained' text='Aceptar' onClick={acceptClicked}/> }
 			</DialogActions>
 		</Dialog>
         );
