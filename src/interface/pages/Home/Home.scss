@@ -1,0 +1,22 @@
+section.view {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    div.filter-tools {
+        display: flex;
+        padding: 0 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div.list {
+        padding: 0 2rem;
+        width: 100%;
+        text-align: center;
+    }
+
+}    
