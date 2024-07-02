@@ -25,7 +25,7 @@ npm run dev
 ```
 
 5. Abrir navegador preferido e ingresar a
-```http
+```
 http://localhost:4200/
 ```
 
