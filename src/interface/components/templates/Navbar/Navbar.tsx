@@ -1,6 +1,7 @@
 "use client";
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import React, { ReactNode } from 'react';
+import './Navbar.scss';
 
 export type NavbarProps = {
 	children: ReactNode;
