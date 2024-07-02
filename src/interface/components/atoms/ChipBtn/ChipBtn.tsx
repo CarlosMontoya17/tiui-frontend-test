@@ -21,7 +21,7 @@ export type ChipBtnProps = {
 }
 
 const ChipBtn: React.FC<ChipBtnProps>  = ({ text, active, onClick }) => {
-	const primary = useTheme().palette.primary.light;
+	const primary = '#1976D2';	
 	return (
 		<CustomChipBtn onClick={onClick} style={active ? { backgroundColor: primary } : {} }>
 			{text}
