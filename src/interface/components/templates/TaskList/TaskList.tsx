@@ -7,20 +7,24 @@ import { Divider } from '@mui/material';
 
 export type TaskListProps = {
 	items: ITask[];
-	onChanges: Function;
+	onCheck: (item: ITask) => any;
 	onDelete: (item: ITask) => any;
 	onEdit: (item: ITask) => any;
 }
 
-const TaskList: React.FC<TaskListProps>  = ({ items, onChanges, onDelete, onEdit }) => {
+const TaskList: React.FC<TaskListProps>  = ({ items, onDelete, onEdit, onCheck }) => {
 	const [ listOfItems, setListOfItems ] = useState<ITask[]>(items);
 
-	const onCheck = (id: number, status: boolean) => {
-		const updatedItems = listOfItems.map(item =>
-			item.id === id ? { ...item, status: status } : item
-		  );
-		setListOfItems(updatedItems);
-		onChanges(updatedItems);
+	const clickCheck = (id: number, status: boolean) => {
+		const _updated: (ITask | null) =  listOfItems.reduce<ITask | null>((updated, item) => {
+			if (item.id === id) {
+				return { ...item, status: status };
+			}
+			return updated?? item;
+		}, null);		
+		if(!!_updated) {
+			onCheck(_updated);
+		}
 	};
 
 	useEffect(() => {
@@ -38,10 +42,11 @@ const TaskList: React.FC<TaskListProps>  = ({ items, onChanges, onDelete, onEdit
 	return (
 		<>
 			<ul className='list'>
-				{listOfItems.map((v) => (
+				{ items.length==0 && <span> SIN TAREAS </span> }
+				{ items.length!=0 && listOfItems.map((v) => (
 					<React.Fragment key={v.id}>
 						<TaskItem key={v.id} 
-						onCheck={(_: number, status:boolean) => onCheck(v.id, status)} 
+						onCheck={(_: number, status:boolean) => clickCheck(v.id, status)} 
 						id={v.id} date={v.date}  title={v.title} text={v.text} status={v.status} 
 						onDelete={(i) => clickDelete(i)} onEdit={clickEdit}/>
 						<Divider component="li" sx={{ bgcolor: 'white', opacity:0.6 }} />

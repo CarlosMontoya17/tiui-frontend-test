@@ -38,9 +38,10 @@ const Home: React.FC<HomeProps>  = ({}) => {
 		dispatch(setItems(getLocalStorage(StorageKeys.Items) ? JSON.parse(getLocalStorage(StorageKeys.Items) as string): stateItems ));
 	},[]);
 
-	const changes = (list: ITask[]) => {
-		dispatch(setItems(list));
-	};
+	const onCheck = (_new: ITask) => {
+		const _updatedList = stateItems.map(_itm => _itm.id === _new.id ? _new : _itm);
+		dispatch(setItems(_updatedList));
+	}
 
 	const onDelete = (item: ITask) => {
 		dispatch(removeItem(item));
@@ -52,7 +53,7 @@ const Home: React.FC<HomeProps>  = ({}) => {
 
 	const findTask = (task: ITask) => stateItems.find(p => p.id === task.id);
 
-	const addTask = (task: ITask) => {
+	const handleTask = (task: ITask) => {
 		let _list: ITask[] = [];
 		if(task.id == 0) {
 			_list = [...stateItems, 
@@ -100,7 +101,7 @@ const Home: React.FC<HomeProps>  = ({}) => {
 	return (
 		<> 
 			<CancelModalProvider title='¿Estás seguro?' text='Se borrarán los cambios realizados' accept={() => cancelTask(false)} cancel={() => {}}/>
-			<TaskModal onAdd={addTask} onClose={cancelTask} ></TaskModal>
+			<TaskModal onAdd={handleTask} onClose={cancelTask} ></TaskModal>
 			<section className='view'>
 				Lista To-Do:
 				<div className="filter-tools">
@@ -108,7 +109,7 @@ const Home: React.FC<HomeProps>  = ({}) => {
 					<CustomButton Icon={BsCalendar2Plus} color='primary' variant='contained' size='large' text='Add' onClick={openTaskModal}/>
 				</div>
 				<div className='list'>
-					<TaskList items={filteredItems} onChanges={changes} onDelete={onDelete} onEdit={onEdit}/>
+					<TaskList items={filteredItems} onCheck={onCheck} onDelete={onDelete} onEdit={onEdit}/>
 				</div>
 			</section>
 		</>
