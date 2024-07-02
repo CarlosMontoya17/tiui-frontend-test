@@ -1,2 +1,2 @@
 export * from './Observer';
-export * from './subject';
+export * from './Subject';
